@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/apartment_menu"
+        android:icon="@drawable/ic_home"
+        android:title="Căn hộ" />
+
+    <item
+        android:id="@+id/contract_menu"
+        android:icon="@drawable/ic_contract"
+        android:title="Hợp đồng" />
+
+    <item
+        android:id="@+id/family_menu"
+        android:icon="@drawable/ic_family"
+        android:title="Hộ gia đình" />
+    <item
+        android:icon="@drawable/ic_business"
+        android:id="@+id/business_menu"
+        android:title="Dịch vụ" />
+
+    <item
+        android:id="@+id/utility_menu"
+        android:icon="@drawable/ic_light"
+        android:title="Điện nước" />
+
+</menu>
