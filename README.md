@@ -1,0 +1,1 @@
+# aPartmentManage_android
