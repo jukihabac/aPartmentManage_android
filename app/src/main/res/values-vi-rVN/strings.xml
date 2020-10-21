@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Question</string>
-    <string name="favorite">Đã lưu</string>
-    <string name="me">Tôi</string>
-    <string name="question">Câu Hỏi</string>
-    <string name="see_all">Tất cả</string>
+    <string name="app_name">apartmentManage</string>
 </resources>
