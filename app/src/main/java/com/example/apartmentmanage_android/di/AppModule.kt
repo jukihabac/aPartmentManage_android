@@ -2,11 +2,13 @@ package com.example.apartmentmanage_android.di
 
 import android.app.Application
 import android.content.Context
-import com.example.testquestion.data.source.shareprefs.SharedPrefs
-import com.example.testquestion.data.source.shareprefs.SharedPrefsImpl
+import com.example.apartmentmanage_android.data.source.local.roompersistence.DatabaseLocal
+import com.example.apartmentmanage_android.data.source.local.shareprefs.SharedPrefs
+import com.example.apartmentmanage_android.data.source.local.shareprefs.SharedPrefsImpl
 import com.example.apartmentmanage_android.di.scopes.AppScoped
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module(includes = [AppModule.AppAbstractModule::class])
 class AppModule {

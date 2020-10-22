@@ -1,9 +1,10 @@
-package com.example.testquestion.data.source.shareprefs
+package com.example.apartmentmanage_android.data.source.local.shareprefs
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.example.apartmentmanage_android.di.scopes.AppScoped
+import com.example.testquestion.data.source.shareprefs.SharedPrefsKey
 import javax.inject.Inject
 
 interface SharedPrefs {
