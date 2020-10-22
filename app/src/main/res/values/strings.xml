@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">apartmentManage</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="title_continue">continue</string>
+    <string name="title_happiness_home">Happiness Home</string>
 </resources>
