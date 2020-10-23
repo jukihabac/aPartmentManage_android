@@ -23,5 +23,4 @@ interface ContractDao {
 
     @Update
     fun updateContract(contractEntity: ContractEntity): Completable
-
 }

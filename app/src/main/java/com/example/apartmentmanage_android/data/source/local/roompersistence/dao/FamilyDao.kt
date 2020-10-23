@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.core.Single
 @Dao
 interface FamilyDao {
 
-    @Query("SELECT * FROM Apartment")
+    @Query("SELECT * FROM Family")
     fun getFamily(): Observable<List<FamilyEntity>>
 
     @Insert

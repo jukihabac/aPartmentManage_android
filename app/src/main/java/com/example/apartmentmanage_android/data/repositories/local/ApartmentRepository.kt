@@ -1,7 +1,8 @@
-package com.example.apartmentmanage_android.data.repositories
+package com.example.apartmentmanage_android.data.repositories.local
 
 import android.content.Context
 import com.example.apartmentmanage_android.data.source.local.roompersistence.DatabaseLocal
+import com.example.apartmentmanage_android.data.source.local.roompersistence.dao.ApartmentDao
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable

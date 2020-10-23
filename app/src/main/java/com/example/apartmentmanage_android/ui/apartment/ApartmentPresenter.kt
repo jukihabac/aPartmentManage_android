@@ -1,6 +1,6 @@
 package com.example.apartmentmanage_android.ui.apartment
 
-import com.example.apartmentmanage_android.data.repositories.ApartmentRepository
+import com.example.apartmentmanage_android.data.repositories.local.ApartmentRepository
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
