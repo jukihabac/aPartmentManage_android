@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.family.FamilyFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/apartmentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/apartmentFloatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dp_20"
+        android:backgroundTint="@color/colorBayouxBlue"
+        android:src="@drawable/ic_plus"
+        app:rippleColor="@color/colorLittleSilverGray" />
+
 </RelativeLayout>

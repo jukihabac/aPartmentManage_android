@@ -1,4 +1,4 @@
-package com.example.testquestion.widget.viewpager
+package com.example.apartmentmanage_android.widget.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

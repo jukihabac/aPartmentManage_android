@@ -1,20 +1,24 @@
 package com.example.apartmentmanage_android.ui.apartment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apartmentmanage_android.R
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
+import kotlinx.android.synthetic.main.fragment_apartment.*
 import javax.inject.Inject
 
 class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     @Inject
     lateinit var mPresenter: ApartmentContract.Presenter
+
+    @Inject
+    lateinit var mAdapter: ApartmentAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,8 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViews()
+        setupData()
     }
 
     override fun onStart() {
@@ -43,7 +49,7 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
     }
 
     override fun onSuccessGetApartment(apartments: List<ApartmentEntity>) {
-        //no-op
+        mAdapter.addApartment(apartments)
     }
 
     override fun onSuccess() {
@@ -52,6 +58,20 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     override fun onError(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setupData() {
+        mPresenter.getApartments()
+    }
+
+    private fun setupViews() {
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        apartmentRecyclerView.adapter = mAdapter
+        apartmentRecyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
     companion object {

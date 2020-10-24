@@ -4,25 +4,26 @@
     <item
         android:id="@+id/apartment_menu"
         android:icon="@drawable/ic_home"
-        android:title="Căn hộ" />
+        android:title="@string/apartment" />
 
     <item
         android:id="@+id/contract_menu"
         android:icon="@drawable/ic_contract"
-        android:title="Hợp đồng" />
+        android:title="@string/contract" />
 
     <item
         android:id="@+id/family_menu"
         android:icon="@drawable/ic_family"
-        android:title="Hộ gia đình" />
+        android:title="@string/family" />
+
     <item
         android:icon="@drawable/ic_business"
         android:id="@+id/business_menu"
-        android:title="Dịch vụ" />
+        android:title="@string/business" />
 
     <item
         android:id="@+id/utility_menu"
         android:icon="@drawable/ic_light"
-        android:title="Điện nước" />
+        android:title="@string/utility" />
 
 </menu>

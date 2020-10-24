@@ -4,6 +4,7 @@ import com.example.apartmentmanage_android.di.scopes.ActivityScoped
 import com.example.apartmentmanage_android.ui.apartment.ApartmentFragment
 import com.example.apartmentmanage_android.ui.business.BusinessFragment
 import com.example.apartmentmanage_android.ui.contract.ContractFragment
+import com.example.apartmentmanage_android.ui.family.FamilyFragment
 import com.example.apartmentmanage_android.ui.utility.UtilityFragment
 import dagger.Binds
 import dagger.Module
@@ -18,6 +19,7 @@ class MainModule {
         val adapter = MainPagerAdapter(mainActivity.supportFragmentManager)
         adapter.addFragment(ApartmentFragment.newInstance())
         adapter.addFragment(ContractFragment.newInstance())
+        adapter.addFragment(FamilyFragment.newInstance())
         adapter.addFragment(BusinessFragment.newInstance())
         adapter.addFragment(UtilityFragment.newInstance())
         return adapter

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Question</string>
+    <string name="app_name">ApartmentMG</string>
     <string name="title_sign_in">Sign In</string>
     <string name="username">Tài khoản</string>
     <string name="password">Mật khẩu</string>
     <string name="title_continue">Tiếp tục</string>
     <string name="title_happiness_home">Happiness Home</string>
+    <string name="catalogs">Danh sách</string>
+    <string name="Add">Thêm</string>
+    <string name="apartment">Căn hộ</string>
+    <string name="contract">Hợp đồng</string>
+    <string name="family">Hộ gia đình</string>
+    <string name="business">Dịch vụ</string>
+    <string name="utility">Điện nước</string>
 </resources>
