@@ -17,7 +17,7 @@ interface DetailContractDao {
     fun getDetailContracts(): Observable<List<DetailContractEntity>>
 
     @Query("SELECT * FROM DetailContract WHERE ContractID =:contractID")
-    fun getDetailContractByID(contractID: String): Observable<DetailBusinessEntity>
+    fun getDetailContractByID(contractID: String): Observable<DetailContractEntity>
 
     @Insert
     fun insertDetailContract(detailContractEntity: DetailContractEntity): Completable

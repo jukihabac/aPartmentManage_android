@@ -13,18 +13,17 @@ import io.reactivex.rxjava3.core.Single
 interface DetailBusinessDao {
 
     @Query("SELECT * FROM DetailBusiness")
-    fun getBusiness(): Observable<List<DetailBusinessEntity>>
+    fun getDetailBusiness(): Observable<List<DetailBusinessEntity>>
 
     @Query("SELECT * FROM DetailBusiness WHERE BusinessID =:businessID")
-    fun getBusinessByID(businessID: String): Observable<DetailBusinessEntity>
+    fun getDetailBusinessByID(businessID: String): Observable<DetailBusinessEntity>
 
     @Insert
-    fun insertBusiness(detailBusinessEntity: DetailBusinessEntity): Completable
+    fun insertDetailBusiness(detailBusinessEntity: DetailBusinessEntity): Completable
 
     @Query("DELETE FROM DetailBusiness WHERE BusinessID =:businessID")
-    fun deleteBusinessByID(businessID: String): Single<Int>
+    fun deleteDetailBusinessByID(businessID: String): Single<Int>
 
     @Update
-    fun updateBusiness(detailBusinessEntity: DetailBusinessEntity): Completable
-
+    fun updateDetailBusiness(detailBusinessEntity: DetailBusinessEntity): Completable
 }

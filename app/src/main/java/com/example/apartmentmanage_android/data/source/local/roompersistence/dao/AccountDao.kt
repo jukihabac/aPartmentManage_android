@@ -2,12 +2,13 @@ package com.example.apartmentmanage_android.data.source.local.roompersistence.da
 
 import androidx.room.Dao
 import androidx.room.Query
+import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.AccountEntity
 import io.reactivex.rxjava3.core.Observable
 
 @Dao
 interface AccountDao {
 
     @Query("SELECT * FROM Account WHERE ID = :ID AND Password = :password")
-    fun signIn(ID: String, password: String): Observable<AccountDao>
+    fun signIn(ID: String, password: String): Observable<AccountEntity>
 
 }
