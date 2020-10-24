@@ -5,4 +5,11 @@
     <string name="password">Password</string>
     <string name="title_continue">continue</string>
     <string name="title_happiness_home">Happiness Home</string>
+    <string name="catalogs">Catalogs</string>
+    <string name="Add">Add</string>
+    <string name="apartment">Apartment</string>
+    <string name="contract">Contract</string>
+    <string name="family">Family</string>
+    <string name="business">Business</string>
+    <string name="utility">Utility</string>
 </resources>

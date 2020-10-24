@@ -22,10 +22,10 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_centerVertical="true"
                     android:layout_width="@dimen/dp_50"
                     android:layout_height="@dimen/dp_50"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/background_notification" />
 
             </RelativeLayout>
@@ -38,6 +38,7 @@
         android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavigationView"
         android:layout_below="@+id/appBarLayout" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

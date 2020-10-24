@@ -72,6 +72,6 @@ class MainActivity : BaseActivity(), MainContract.View {
     }
 
     companion object {
-        const val OFF_SCREEN_PAGE_LIMIT = 4
+        const val OFF_SCREEN_PAGE_LIMIT = 5
     }
 }
