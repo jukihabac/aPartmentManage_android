@@ -52,6 +52,7 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
         mAdapter.addApartment(apartments)
     }
 
+
     override fun onSuccess() {
         //no-op
     }
@@ -66,6 +67,13 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     private fun setupViews() {
         setupRecyclerView()
+        setupFloatButton()
+    }
+
+    private fun setupFloatButton() {
+        apartmentFloatButton.setOnClickListener {
+            ApartmentDialog.newInstance().show(parentFragmentManager, ApartmentDialog.TAG)
+        }
     }
 
     private fun setupRecyclerView() {
