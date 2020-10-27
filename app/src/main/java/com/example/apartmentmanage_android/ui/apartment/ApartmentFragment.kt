@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apartmentmanage_android.R
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
+import com.example.apartmentmanage_android.ui.apartment.dialog.CURApartment
 import kotlinx.android.synthetic.main.fragment_apartment.*
 import javax.inject.Inject
 
@@ -52,7 +53,6 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
         mAdapter.addApartment(apartments)
     }
 
-
     override fun onSuccess() {
         //no-op
     }
@@ -72,7 +72,7 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     private fun setupFloatButton() {
         apartmentFloatButton.setOnClickListener {
-            ApartmentDialog.newInstance().show(parentFragmentManager, ApartmentDialog.TAG)
+
         }
     }
 

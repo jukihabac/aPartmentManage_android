@@ -1,7 +1,6 @@
 package com.example.apartmentmanage_android.di
 
-import com.example.apartmentmanage_android.data.repositories.local.ApartmentRepository
-import com.example.apartmentmanage_android.data.repositories.local.ApartmentRepositoryImpl
+import com.example.apartmentmanage_android.data.repositories.local.*
 import com.example.apartmentmanage_android.di.scopes.AppScoped
 import dagger.Binds
 import dagger.Module
@@ -13,5 +12,13 @@ class RepositoryLocalModule {
         @AppScoped
         @Binds
         fun bindApartmentRepository(repository: ApartmentRepositoryImpl): ApartmentRepository
+
+        @AppScoped
+        @Binds
+        fun bindFamilyRepository(repository: FamilyRepositoryImpl): FamilyRepository
+
+        @AppScoped
+        @Binds
+        fun bindRegionRepository(repository: RegionRepositoryImpl): RegionRepository
     }
 }
