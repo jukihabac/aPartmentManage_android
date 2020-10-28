@@ -10,5 +10,4 @@ interface AccountDao {
 
     @Query("SELECT * FROM Account WHERE ID = :ID AND Password = :password")
     fun signIn(ID: String, password: String): Observable<AccountEntity>
-
 }
