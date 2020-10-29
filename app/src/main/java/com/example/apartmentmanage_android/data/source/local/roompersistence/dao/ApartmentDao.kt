@@ -24,4 +24,6 @@ interface ApartmentDao {
     @Update
     fun updateApartment(apartmentEntity: ApartmentEntity): Completable
 
+    @Query("SELECT * FROM Apartment WHERE ApartmentID =:apartmentID")
+    fun getApartmentByID(apartmentID: String): Observable<ApartmentEntity>
 }
