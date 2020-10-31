@@ -1,10 +1,8 @@
-package com.example.apartmentmanage_android.ui.contract.CRUContract
+package com.example.apartmentmanage_android.ui.contract.dialog
 
 import android.app.Activity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.apartmentmanage_android.R
 import com.example.apartmentmanage_android.app.Constants
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ContractEntity
@@ -25,7 +23,7 @@ class CRUContractActivity : BaseActivity() {
         saveButton.setOnClickListener {
             if (intent.getIntExtra("REQUEST_ADD", Constants.NOT_EXISTS) == 1) {
                 intent.putExtra(
-                    RESPONSE_ADD,
+                    Constants.RESPONSE_ADD,
                     ContractEntity(
                         contractIDEditText.text.toString(),
                         contractNameEditText.text.toString(), "", "", "", "", 0f
@@ -34,7 +32,7 @@ class CRUContractActivity : BaseActivity() {
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             } else if (intent.getIntExtra("REQUEST_UPDATE", Constants.NOT_EXISTS) == 2) {
-                intent.putExtra(RESPONSE_UPDATE, "DU LIEU UPDATE")
+                intent.putExtra(Constants.RESPONSE_UPDATE, "DU LIEU UPDATE")
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             }
@@ -63,10 +61,4 @@ class CRUContractActivity : BaseActivity() {
         super.finish()
         overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
     }
-
-    companion object {
-        const val RESPONSE_ADD = "RESPONSE_ADD"
-        const val RESPONSE_UPDATE = "RESPONSE_UPDATE"
-    }
-
 }

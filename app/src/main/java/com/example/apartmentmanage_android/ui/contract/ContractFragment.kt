@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apartmentmanage_android.R
+import com.example.apartmentmanage_android.app.Constants
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ContractEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
-import com.example.apartmentmanage_android.ui.contract.CRUContract.CRUContractActivity
+import com.example.apartmentmanage_android.ui.contract.dialog.CRUContractActivity
 import kotlinx.android.synthetic.main.fragment_contract.*
 import javax.inject.Inject
 
@@ -95,21 +96,18 @@ class ContractFragment : BaseFragment(), ContractContract.View {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_ADD) {
+        if (requestCode == Constants.REQUEST_ADD) {
             if (resultCode == Activity.RESULT_OK && data != null) {
-                mPresenter.addContract(data.getParcelableExtra(CRUContractActivity.RESPONSE_ADD))
+                mPresenter.addContract(data.getParcelableExtra(Constants.RESPONSE_ADD))
             }
-        } else if (requestCode == REQUEST_UPDATE) {
+        } else if (requestCode == Constants.REQUEST_UPDATE) {
             if (resultCode == Activity.RESULT_OK && data != null) {
-                //  mPresenter.updateContract(data.getParcelableExtra(CRUContractActivity.RESPONSE_UPDATE))
+                //  mPresenter.updateContract(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
             }
         }
     }
 
     companion object {
-        const val REQUEST_ADD = 1
-        const val REQUEST_UPDATE = 2
-
         fun newInstance() = ContractFragment()
     }
 }

@@ -23,5 +23,9 @@ class ApartmentModule {
         @FragmentScoped
         @Binds
         fun bindApartmentPresenter(presenter: ApartmentPresenter): ApartmentContract.Presenter
+
+        @FragmentScoped
+        @Binds
+        fun bindApartmentNavigator(apartmentNavigatorImpl: ApartmentNavigatorImpl): ApartmentNavigator
     }
 }
