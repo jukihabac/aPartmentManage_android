@@ -1,5 +1,7 @@
 package com.example.apartmentmanage_android.ui.apartment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apartmentmanage_android.R
+import com.example.apartmentmanage_android.app.Constants
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_apartment.*
@@ -19,6 +22,10 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     @Inject
     lateinit var mAdapter: ApartmentAdapter
+
+    @Inject
+    lateinit var mNavigator: ApartmentNavigator
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,13 +59,25 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
         mAdapter.addApartment(apartments)
     }
 
-
     override fun onSuccess() {
         //no-op
     }
 
     override fun onError(error: String) {
         Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.REQUEST_ADD) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                mPresenter.addApartment(data.getParcelableExtra(Constants.RESPONSE_ADD))
+            }
+        } else if (requestCode == Constants.REQUEST_UPDATE) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                //  mPresenter.updateContract(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
+            }
+        }
     }
 
     private fun setupData() {
@@ -72,7 +91,7 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     private fun setupFloatButton() {
         apartmentFloatButton.setOnClickListener {
-            ApartmentDialog.newInstance().show(parentFragmentManager, ApartmentDialog.TAG)
+            mNavigator.navigateToAddApartment()
         }
     }
 
