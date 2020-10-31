@@ -1,8 +1,11 @@
 package com.example.apartmentmanage_android.data.source.local.roompersistence.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "Apartment", primaryKeys = ["ApartmentID"])
 data class ApartmentEntity (
     @ColumnInfo(name = "ApartmentID") val ID: String,
@@ -13,4 +16,4 @@ data class ApartmentEntity (
     @ColumnInfo(name = "Note") val note: String,
     @ColumnInfo(name = "RegionID") val regionID: String,
     @ColumnInfo(name = "FamilyID") val familyID: String,
-)
+) : Parcelable

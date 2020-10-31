@@ -1,4 +1,4 @@
-package com.example.apartmentmanage_android.ui.contract.CRUContract
+package com.example.apartmentmanage_android.ui.contract.dialog
 
 import dagger.Module
 
