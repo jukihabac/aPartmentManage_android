@@ -59,9 +59,6 @@ captures/
 .externalNativeBuild
 .cxx/
 
-# Google Services (e.g. APIs or Firebase)
-# google-services.json
-
 # Freeline
 freeline.py
 freeline/
@@ -82,7 +79,33 @@ lint/intermediates/
 lint/generated/
 lint/outputs/
 lint/tmp/
-# lint/reports/
 
 # Android Profiling
 *.hprof
+
+# User-specific configurations
+.idea/libraries/
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# Built application files
+/*/build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Signing files
+.signing/
