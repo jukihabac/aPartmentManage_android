@@ -12,8 +12,10 @@ interface ApartmentContract {
     }
 
     interface View {
-        fun onSuccessGetApartment(apartments: List<ApartmentEntity>)
-        fun onSuccess()
+        fun onGetApartmentSuccess(apartments: List<ApartmentEntity>)
+        fun onAddApartmentSuccess(apartmentEntity: ApartmentEntity)
+        fun onUpdateApartmentSuccess(apartmentEntity: ApartmentEntity)
+        fun onDeleteApartmentSuccess(apartmentID: String)
         fun onError(error: String)
     }
 }

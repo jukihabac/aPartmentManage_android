@@ -12,10 +12,12 @@ import com.example.apartmentmanage_android.R
 import com.example.apartmentmanage_android.app.Constants
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ApartmentEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
+import com.example.apartmentmanage_android.widget.recyclerview.item.ApartmentItem
 import kotlinx.android.synthetic.main.fragment_apartment.*
 import javax.inject.Inject
 
-class ApartmentFragment : BaseFragment(), ApartmentContract.View {
+class ApartmentFragment : BaseFragment(), ApartmentContract.View,
+    ApartmentAdapter.OnActionListener {
 
     @Inject
     lateinit var mPresenter: ApartmentContract.Presenter
@@ -25,7 +27,6 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
 
     @Inject
     lateinit var mNavigator: ApartmentNavigator
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,12 +56,20 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
         super.onDestroy()
     }
 
-    override fun onSuccessGetApartment(apartments: List<ApartmentEntity>) {
-        mAdapter.addApartment(apartments)
+    override fun onGetApartmentSuccess(apartments: List<ApartmentEntity>) {
+        mAdapter.addApartments(apartments)
     }
 
-    override fun onSuccess() {
-        //no-op
+    override fun onAddApartmentSuccess(apartmentEntity: ApartmentEntity) {
+        mAdapter.addApartment(apartmentEntity)
+    }
+
+    override fun onUpdateApartmentSuccess(apartmentEntity: ApartmentEntity) {
+        mAdapter.updateApartment(apartmentEntity)
+    }
+
+    override fun onDeleteApartmentSuccess(apartmentID: String) {
+        mAdapter.removeApartment(apartmentID)
     }
 
     override fun onError(error: String) {
@@ -75,9 +84,17 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
             }
         } else if (requestCode == Constants.REQUEST_UPDATE) {
             if (resultCode == Activity.RESULT_OK && data != null) {
-                //  mPresenter.updateContract(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
+                mPresenter.updateApartment(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
             }
         }
+    }
+
+    override fun onEditListener(item: ApartmentItem) {
+        mNavigator.navigateToUpdateApartment(item.apartmentEntity)
+    }
+
+    override fun onDeleteListener(apartmentID: String) {
+        mPresenter.deleteApartment(apartmentID)
     }
 
     private fun setupData() {
@@ -96,6 +113,7 @@ class ApartmentFragment : BaseFragment(), ApartmentContract.View {
     }
 
     private fun setupRecyclerView() {
+        mAdapter.setOnActionListener(this)
         apartmentRecyclerView.adapter = mAdapter
         apartmentRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

@@ -14,11 +14,14 @@
     <string name="business">Dịch vụ</string>
     <string name="utility">Điện nước</string>
     <string name="name_apartment">Tên căn hộ</string>
-    <string name="cost">giá</string>
+    <string name="cost">Giá</string>
     <string name="note">Ghi chú</string>
     <string name="region_id">Mã khu</string>
     <string name="family_id">Mã hộ gia đình</string>
     <string name="kind_apartment">Loại căn hộ</string>
     <string name="states">Trạng thái</string>
     <string name="submit">Hoàn tất</string>
+    <string name="edit">Sửa</string>
+    <string name="delete">Xóa</string>
+    <string name="apartment_id">Mã căn hộ</string>
 </resources>

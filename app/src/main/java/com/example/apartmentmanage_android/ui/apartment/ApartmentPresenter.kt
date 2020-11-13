@@ -19,7 +19,7 @@ class ApartmentPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccessGetApartment(it)
+                view?.onGetApartmentSuccess(it)
             }, {
                 view?.onError(it.localizedMessage)
             })
@@ -31,7 +31,7 @@ class ApartmentPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccess()
+                view?.onDeleteApartmentSuccess(apartmentID)
             }, {
                 view?.onError(it.localizedMessage)
             })
@@ -43,7 +43,7 @@ class ApartmentPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccess()
+                view?.onUpdateApartmentSuccess(apartmentEntity)
             }, {
                 view?.onError(it.localizedMessage)
             })
@@ -55,7 +55,7 @@ class ApartmentPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccess()
+                view?.onAddApartmentSuccess(apartmentEntity)
             }, {
                 view?.onError(it.localizedMessage)
             })

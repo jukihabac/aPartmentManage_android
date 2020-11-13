@@ -1,6 +1,8 @@
 package com.example.apartmentmanage_android.ui.apartment.dialog
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -76,7 +78,19 @@ class CRUApartmentActivity : BaseActivity(), CRUApartmentContract.View {
     }
 
     private fun setupViews() {
-        //no-op
+        intent?.extras?.getParcelable<ApartmentEntity>(APARTMENT_EXTRA).let {
+            if (it != null) {
+                apartmentIDEditText.setText(it.ID.toString())
+                apartmentIDEditText.isEnabled = false
+                apartmentNameEditText.setText(it.name)
+                kind_dropdown.setText(it.kind)
+                costEditText.setText(it.cost.toString())
+                statesEditText.setText(it.state)
+                noteEditText.setText(it.note)
+                regionID_dropdown.setText(it.regionID)
+                familyID_dropdown.setText(it.familyID)
+            }
+        }
     }
 
     private fun handleEvents() {
@@ -85,25 +99,48 @@ class CRUApartmentActivity : BaseActivity(), CRUApartmentContract.View {
         }
         submitButton.setOnClickListener {
             if (intent.getIntExtra("REQUEST_ADD", Constants.NOT_EXISTS) == 1) {
-                intent.putExtra(
-                    Constants.RESPONSE_ADD,
-                    ApartmentEntity(
-                        apartmentIDEditText.text.toString(),
-                        apartmentNameEditText.text.toString(), "", 10f, "", "", "", ""
-                    )
-                )
+                putExtraApartment(Constants.RESPONSE_ADD)
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             } else if (intent.getIntExtra("REQUEST_UPDATE", Constants.NOT_EXISTS) == 2) {
-                intent.putExtra(Constants.RESPONSE_UPDATE, "DU LIEU UPDATE")
+                putExtraApartment(Constants.RESPONSE_UPDATE)
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             }
         }
     }
 
+    private fun putExtraApartment(RESPONSE: String) {
+        intent.putExtra(
+            RESPONSE,
+            ApartmentEntity(
+                apartmentIDEditText.text.toString(),
+                apartmentNameEditText.text.toString(),
+                kind_dropdown.text.toString(),
+                costEditText.text.toString().toFloat(),
+                statesEditText.text.toString(),
+                noteEditText.text.toString(),
+                regionID_dropdown.text.toString(),
+                familyID_dropdown.text.toString()
+            )
+        )
+    }
+
     companion object {
         val TAG = CRUApartmentActivity::class.java.simpleName
-        fun newInstance() = CRUApartmentActivity()
+        const val APARTMENT_EXTRA = "APARTMENT_EXTRA"
+
+        fun newInstance(context: Context?, apartmentEntity: ApartmentEntity): Intent {
+            return Intent(context, CRUApartmentActivity::class.java).apply {
+                putExtra("REQUEST_UPDATE", Constants.REQUEST_UPDATE)
+                putExtra(APARTMENT_EXTRA, apartmentEntity)
+            }
+        }
+
+        fun newInstance(context: Context?): Intent {
+            return Intent(context, CRUApartmentActivity::class.java).apply {
+                putExtra("REQUEST_ADD", Constants.REQUEST_ADD)
+            }
+        }
     }
 }

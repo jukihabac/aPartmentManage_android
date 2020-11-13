@@ -9,9 +9,8 @@
     </item>
 
     <item
-        android:width="@dimen/dp_28"
-        android:height="@dimen/dp_28"
-        android:drawable="@drawable/ic_previous"
+        android:width="@dimen/dp_5"
+        android:height="@dimen/dp_20"
+        android:drawable="@drawable/ic_popup_menu"
         android:gravity="center" />
-
 </ripple>
