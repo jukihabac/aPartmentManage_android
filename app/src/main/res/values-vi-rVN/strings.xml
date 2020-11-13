@@ -24,4 +24,6 @@
     <string name="edit">Sửa</string>
     <string name="delete">Xóa</string>
     <string name="apartment_id">Mã căn hộ</string>
+    <string name="Rent">Thuê</string>
+    <string name="Buy">Mua</string>
 </resources>

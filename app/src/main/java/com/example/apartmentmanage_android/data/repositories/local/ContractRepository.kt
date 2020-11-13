@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 interface ContractRepository {
-    fun getContracts(): Observable<List<ContractEntity>>
+    fun getContracts(): Single<List<ContractEntity>>
 
     fun insertContract(contractEntity: ContractEntity): Completable
 
@@ -23,7 +23,7 @@ class ContractRepositoryImpl @Inject constructor(private val context: Context) :
 
     private var mContractDao = DatabaseLocal.getDatabase(context).getContractDao()
 
-    override fun getContracts(): Observable<List<ContractEntity>> = mContractDao.getContracts()
+    override fun getContracts(): Single<List<ContractEntity>> = mContractDao.getContracts()
 
     override fun insertContract(contractEntity: ContractEntity): Completable =
         mContractDao.insertContract(contractEntity)

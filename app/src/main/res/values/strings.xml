@@ -23,4 +23,6 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="apartment_id">ID Apartment</string>
+    <string name="Rent">Rent</string>
+    <string name="Buy">Buy</string>
 </resources>
