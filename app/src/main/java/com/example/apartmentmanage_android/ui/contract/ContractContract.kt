@@ -13,9 +13,9 @@ interface ContractContract {
 
     interface View {
         fun onSuccessGetContracts(contracts: List<ContractEntity>)
-        fun onSuccessAddContract()
-        fun onSuccessDeleteContract()
-        fun onSuccessUpdateContract()
+        fun onSuccessAddContract(contractEntity: ContractEntity)
+        fun onSuccessDeleteContract(contractID: String)
+        fun onSuccessUpdateContract(contractEntity: ContractEntity)
         fun onError(error: String)
     }
 }

@@ -24,5 +24,9 @@ class RepositoryLocalModule {
         @AppScoped
         @Binds
         fun bindRegionRepository(repository: RegionRepositoryImpl): RegionRepository
+
+        @AppScoped
+        @Binds
+        fun bindEmployeeRepository(repository: EmployeeRepositoryImpl): EmployeeRepository
     }
 }

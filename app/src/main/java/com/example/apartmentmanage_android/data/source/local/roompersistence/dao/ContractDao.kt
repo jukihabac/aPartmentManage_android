@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.core.Single
 interface ContractDao {
 
     @Query("SELECT * FROM Contract")
-    fun getContracts(): Observable<List<ContractEntity>>
+    fun getContracts(): Single<List<ContractEntity>>
 
     @Insert
     fun insertContract(contractEntity: ContractEntity): Completable

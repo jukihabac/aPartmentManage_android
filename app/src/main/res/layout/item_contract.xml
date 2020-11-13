@@ -2,16 +2,61 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp_75"
+    android:layout_height="@dimen/dp_124"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/dp_15"
     app:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/nameContract"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/dp_15"
-        android:textSize="@dimen/sp_20" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/nameContractLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name Contract :"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:id="@+id/nameContractTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_toRightOf="@id/nameContractLabel"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:id="@+id/ContractIDLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameContractLabel"
+            android:layout_marginTop="@dimen/dp_28"
+            android:text="ID Contract :"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:id="@+id/idContractTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameContractLabel"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_28"
+            android:layout_toEndOf="@id/ContractIDLabel"
+            android:textSize="@dimen/sp_20" />
+
+        <Button
+            android:id="@+id/popupMenuButton"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/background_popup_menu" />
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

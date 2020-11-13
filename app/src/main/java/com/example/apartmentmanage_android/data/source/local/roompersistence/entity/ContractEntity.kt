@@ -12,7 +12,7 @@ data class ContractEntity(
     @ColumnInfo(name = "ContractName") val name: String,
     @ColumnInfo(name = "ContractKind") val kind: String,
     @ColumnInfo(name = "EmployeeID") val employeeID: String,
-    @ColumnInfo(name = "ApartmentID") val regionID: String,
+    @ColumnInfo(name = "ApartmentID") val apartmentID: String,
     @ColumnInfo(name = "FamilyID") val familyID: String,
     @ColumnInfo(name = "SumCost") val sum: Float
 ) : Parcelable

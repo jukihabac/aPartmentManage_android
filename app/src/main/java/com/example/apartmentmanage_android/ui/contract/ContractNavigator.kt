@@ -15,26 +15,19 @@ interface ContractNavigator {
 class ContractNavigatorImpl @Inject constructor(private val fragment: ContractFragment) :
     ContractNavigator {
     override fun navigateToAddContract() {
-        val intent = Intent(fragment.context, CRUContractActivity::class.java).apply {
-            putExtra("REQUEST_ADD", Constants.REQUEST_ADD)
-        }
         ActivityUtils.startActivityForResultSlideByFragment(
             fragment,
             fragment.context,
-            intent,
+            CRUContractActivity.newInstance(fragment.context),
             Constants.REQUEST_ADD
         )
     }
 
     override fun navigateToUpdateContract(contractEntity: ContractEntity) {
-        val intent = Intent(fragment.context, CRUContractActivity::class.java).apply {
-            putExtra("REQUEST_UPDATE", Constants.REQUEST_UPDATE)
-            putExtra("contractEntity", contractEntity)
-        }
         ActivityUtils.startActivityForResultSlideByFragment(
             fragment,
             fragment.context,
-            intent,
+            CRUContractActivity.newInstance(fragment.context, contractEntity),
             Constants.REQUEST_UPDATE
         )
     }

@@ -31,7 +31,7 @@ class ContractPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccessAddContract()
+                view?.onSuccessAddContract(contractEntity)
             }, {
                 view?.onError(it.localizedMessage)
             })
@@ -43,7 +43,7 @@ class ContractPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccessDeleteContract()
+                view?.onSuccessDeleteContract(contractID)
             }, {
                 view?.onError(it.localizedMessage)
             })
@@ -55,7 +55,7 @@ class ContractPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                view?.onSuccessUpdateContract()
+                view?.onSuccessUpdateContract(contractEntity)
             }, {
                 view?.onError(it.localizedMessage)
             })

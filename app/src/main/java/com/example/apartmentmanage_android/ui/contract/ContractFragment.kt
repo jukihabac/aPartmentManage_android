@@ -11,11 +11,10 @@ import com.example.apartmentmanage_android.R
 import com.example.apartmentmanage_android.app.Constants
 import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.ContractEntity
 import com.example.apartmentmanage_android.ui.BaseFragment
-import com.example.apartmentmanage_android.ui.contract.dialog.CRUContractActivity
 import kotlinx.android.synthetic.main.fragment_contract.*
 import javax.inject.Inject
 
-class ContractFragment : BaseFragment(), ContractContract.View {
+class ContractFragment : BaseFragment(), ContractContract.View, ContractAdapter.OnActionListener {
 
     @Inject
     lateinit var mPresenter: ContractContract.Presenter
@@ -40,6 +39,19 @@ class ContractFragment : BaseFragment(), ContractContract.View {
         handleEvents()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.REQUEST_ADD) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                mPresenter.addContract(data.getParcelableExtra(Constants.RESPONSE_ADD))
+            }
+        } else if (requestCode == Constants.REQUEST_UPDATE) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                mPresenter.updateContract(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
+            }
+        }
+    }
+
     override fun onStart() {
         mPresenter.onStart()
         super.onStart()
@@ -59,19 +71,27 @@ class ContractFragment : BaseFragment(), ContractContract.View {
         mAdapter.addContracts(contracts)
     }
 
-    override fun onSuccessAddContract() {
-        mAdapter.clearItems()
+    override fun onSuccessAddContract(contractEntity: ContractEntity) {
+        mAdapter.addContract(contractEntity)
     }
 
-    override fun onSuccessDeleteContract() {
-        //no-op
+    override fun onSuccessDeleteContract(contractID: String) {
+        mAdapter.removeContract(contractID)
     }
 
-    override fun onSuccessUpdateContract() {
-        //no-op
+    override fun onSuccessUpdateContract(contractEntity: ContractEntity) {
+        mAdapter.updateContract(contractEntity)
     }
 
     override fun onError(error: String) {
+    }
+
+    override fun onEditListener(contractEntity: ContractEntity) {
+        mNavigator.navigateToUpdateContract(contractEntity)
+    }
+
+    override fun onDeleteListener(contractID: String) {
+        mPresenter.deleteContract(contractID)
     }
 
     private fun setupViews() {
@@ -79,6 +99,7 @@ class ContractFragment : BaseFragment(), ContractContract.View {
     }
 
     private fun setupRecyclerView() {
+        mAdapter.setOnActionListener(this)
         contractRecyclerView.adapter = mAdapter
         contractRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -91,19 +112,6 @@ class ContractFragment : BaseFragment(), ContractContract.View {
     private fun handleEvents() {
         contractFloatButton.setOnClickListener {
             mNavigator.navigateToAddContract()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.REQUEST_ADD) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                mPresenter.addContract(data.getParcelableExtra(Constants.RESPONSE_ADD))
-            }
-        } else if (requestCode == Constants.REQUEST_UPDATE) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                //  mPresenter.updateContract(data.getParcelableExtra(Constants.RESPONSE_UPDATE))
-            }
         }
     }
 
