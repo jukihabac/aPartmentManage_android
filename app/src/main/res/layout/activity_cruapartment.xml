@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_40"
         android:layout_marginVertical="@dimen/dp_10"
-        android:hint="Mã căn hộ">
+        android:hint="@string/apartment_id">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/apartmentIDEditText"
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_55"
             android:imeOptions="actionNext"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

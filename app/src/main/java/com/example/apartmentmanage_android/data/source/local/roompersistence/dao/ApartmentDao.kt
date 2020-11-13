@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.core.Single
 interface ApartmentDao {
 
     @Query("SELECT * FROM Apartment")
-    fun getApartments(): Observable<List<ApartmentEntity>>
+    fun getApartments(): Single<List<ApartmentEntity>>
 
     @Insert
     fun insertApartment(apartmentEntity: ApartmentEntity): Completable

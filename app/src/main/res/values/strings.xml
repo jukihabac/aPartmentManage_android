@@ -20,4 +20,7 @@
     <string name="kind_apartment">Kind apartment</string>
     <string name="states">states</string>
     <string name="submit">Submit</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="apartment_id">ID Apartment</string>
 </resources>

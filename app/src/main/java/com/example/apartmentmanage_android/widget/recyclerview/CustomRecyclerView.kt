@@ -23,7 +23,7 @@ class CustomRecyclerView {
 
     abstract class Adapter<T>(items: List<Item>) : RecyclerView.Adapter<ViewHolder<*>>() {
 
-        private val mItems = ArrayList<Item>()
+        val mItems = ArrayList<Item>()
         private val mViewTypes = HashMap<String, Int>()
 
         init {

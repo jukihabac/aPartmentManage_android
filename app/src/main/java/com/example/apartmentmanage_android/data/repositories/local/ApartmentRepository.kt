@@ -16,7 +16,7 @@ interface ApartmentRepository {
 
     fun deleteApartment(apartmentID: String): Single<Int>
 
-    fun getApartments(): Observable<List<ApartmentEntity>>
+    fun getApartments(): Single<List<ApartmentEntity>>
 
     fun getApartmentByID(apartmentID: String): Observable<ApartmentEntity>
 }
@@ -38,7 +38,7 @@ class ApartmentRepositoryImpl @Inject constructor(private val context: Context) 
         return mApartmentDao.deleteApartmentByID(apartmentID)
     }
 
-    override fun getApartments(): Observable<List<ApartmentEntity>> {
+    override fun getApartments(): Single<List<ApartmentEntity>> {
         return mApartmentDao.getApartments()
     }
 
