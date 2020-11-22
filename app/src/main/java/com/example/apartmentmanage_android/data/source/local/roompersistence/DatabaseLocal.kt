@@ -23,7 +23,8 @@ import com.example.apartmentmanage_android.data.source.local.roompersistence.ent
         InvoiceBusinessEntity::class,
         InvoiceElectricEntity::class,
         InvoiceWaterEntity::class,
-        RegionEntity::class
+        RegionEntity::class,
+        MemberEntity::class
     ], version = VERSION_DATABASE, exportSchema = false
 )
 
@@ -43,7 +44,7 @@ abstract class DatabaseLocal : RoomDatabase() {
     abstract fun getEmployeeDao(): EmployeeDao
     abstract fun getFamilyDao(): FamilyDao
     abstract fun getRegionDao(): RegionDao
-
+    abstract fun getMemberDao(): MemberDao
 
     companion object {
         private const val NAME_DATABASE = "ApartmentDatabase"

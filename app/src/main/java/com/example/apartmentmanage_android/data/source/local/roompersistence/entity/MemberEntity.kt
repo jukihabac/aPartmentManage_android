@@ -3,9 +3,10 @@ package com.example.apartmentmanage_android.data.source.local.roompersistence.en
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 
-@Entity(tableName = "Employee", primaryKeys = ["EmployeeID"])
-data class EmployeeEntity (
-    @ColumnInfo(name = "EmployeeID") val ID: String,
+@Entity(tableName = "Member", primaryKeys = ["MemberID"])
+data class MemberEntity(
+    @ColumnInfo(name = "MemberID") val ID: String,
+    @ColumnInfo(name = "FamilyID") val familyID: String,
     @ColumnInfo(name = "FullName") val name: String,
     @ColumnInfo(name = "Sex") val sex: String,
     @ColumnInfo(name = "Address") val address: String,
