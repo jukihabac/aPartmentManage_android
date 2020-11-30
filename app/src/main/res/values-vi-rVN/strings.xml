@@ -26,4 +26,10 @@
     <string name="apartment_id">Mã căn hộ</string>
     <string name="Rent">Thuê</string>
     <string name="Buy">Mua</string>
+    <string name="contract_id">Mã hợp đồng</string>
+    <string name="contract_name">Tên hợp đồng</string>
+    <string name="contract_kind">Loại hợp đồng</string>
+    <string name="employee_id">Mã nhân viên</string>
+    <string name="save">Lưu</string>
+    <string name="sum_cost_n_vat_20">Tổng chi phí\n VAT 20%</string>
 </resources>
