@@ -25,4 +25,10 @@
     <string name="apartment_id">ID Apartment</string>
     <string name="Rent">Rent</string>
     <string name="Buy">Buy</string>
+    <string name="contract_id">ID contract</string>
+    <string name="contract_name">Name contract</string>
+    <string name="contract_kind">Kind contract</string>
+    <string name="employee_id">ID employee</string>
+    <string name="save">Save</string>
+    <string name="sum_cost_n_vat_20">Sum Cost\n VAT 20%</string>
 </resources>
