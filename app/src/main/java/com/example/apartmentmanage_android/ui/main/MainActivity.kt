@@ -1,8 +1,11 @@
 package com.example.apartmentmanage_android.ui.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.apartmentmanage_android.R
+import com.example.apartmentmanage_android.data.source.local.roompersistence.entity.AccountEntity
 import com.example.apartmentmanage_android.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -73,5 +76,12 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     companion object {
         const val OFF_SCREEN_PAGE_LIMIT = 5
+        const val ACCOUNT_EXTRA = "ACCOUNT_EXTRA"
+
+        fun newInstance(context: Context?, accountEntity: AccountEntity): Intent {
+            return Intent(context, MainActivity::class.java).apply {
+                putExtra(ACCOUNT_EXTRA, accountEntity)
+            }
+        }
     }
 }

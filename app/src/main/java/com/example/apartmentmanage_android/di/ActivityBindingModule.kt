@@ -7,6 +7,8 @@ import com.example.apartmentmanage_android.ui.contract.dialog.CRUContractActivit
 import com.example.apartmentmanage_android.ui.contract.dialog.CRUContractModule
 import com.example.apartmentmanage_android.ui.main.MainActivity
 import com.example.apartmentmanage_android.ui.main.MainModule
+import com.example.apartmentmanage_android.ui.signin.SignInActivity
+import com.example.apartmentmanage_android.ui.signin.SignInModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -24,4 +26,8 @@ abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = [CRUApartmentModule::class])
     abstract fun contributeCRUApartment(): CRUApartmentActivity
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = [SignInModule::class])
+    abstract fun contributeSignInActivity(): SignInActivity
 }

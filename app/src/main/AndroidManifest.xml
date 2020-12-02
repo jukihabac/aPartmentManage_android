@@ -10,9 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.contract.dialog.CRUContractActivity" />
         <activity android:name=".ui.apartment.dialog.CRUApartmentActivity" />
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.signin.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -32,4 +32,9 @@
     <string name="employee_id">Mã nhân viên</string>
     <string name="save">Lưu</string>
     <string name="sum_cost_n_vat_20">Tổng chi phí\n VAT 20%</string>
+    <string name="could_not_find_your_account">Không tìm thấy tài khoản</string>
+    <string name="wrong_password_try_again">Mật khẩu không chính xác</string>
+    <string name="enter_username">Nhập tài khoản</string>
+    <string name="enter_password">Nhập mật khẩu</string>
+    <string name="enter_combination_of_at_least_five_numbers_and_letters">Nhập kết hợp của ít nhất 5 số và chữ cái</string>
 </resources>
