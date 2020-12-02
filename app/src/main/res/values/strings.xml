@@ -31,4 +31,9 @@
     <string name="employee_id">ID employee</string>
     <string name="save">Save</string>
     <string name="sum_cost_n_vat_20">Sum Cost\n VAT 20%</string>
+    <string name="could_not_find_your_account">Couldn\'t find your account</string>
+    <string name="wrong_password_try_again">Wrong password, try again</string>
+    <string name="enter_username">Enter a username</string>
+    <string name="enter_password">Enter a password</string>
+    <string name="enter_combination_of_at_least_five_numbers_and_letters">Enter a combination of at least five numbers and letters</string>
 </resources>
